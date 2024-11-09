@@ -1,11 +1,33 @@
 {
   "compilerOptions": {
+    "target": "es2019",
     "module": "commonjs",
+    "lib": ["es6"],
+    "allowJs": true,
+    "outDir": "build",
+    "declaration": true,
+    "rootDir": "src",
+    "strict": true,
+    "noImplicitAny": true,
     "esModuleInterop": true,
-    "target": "es6",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
+    "baseUrl": ".",
+    "types": ["node"],
+    "paths": {
+      "@src/*": ["src/*"]
+    },
     "sourceMap": true,
-    "outDir": "dist"
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "inlineSources": true
   },
-  "lib": ["es2015"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build/**/*"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
 }
