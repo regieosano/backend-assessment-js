@@ -1,5 +1,6 @@
 import cors from "cors";
 import { Application } from "express";
+import sourceRoutes from "@src/routes";
 import constantMessageValue from "@src/constants/stringnummisc";
 
 const bodyParser = require("body-parser");
@@ -13,6 +14,9 @@ export default async (app: Application) => {
 
   app.use(bodyParser.json({ limit: "50mb" }));
   app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+
+  // source routes
+  app.use(sourceRoutes);
 
   // catch-all routes
   app.get(constantMessageValue.api_main_slash, (req, res) => {
