@@ -1,14 +1,15 @@
 import axios from "axios";
 import { ProductType } from "@src/types";
+import { productStorage } from "@src/utilities/db";
 
 export const getProducts: Function = async (): Promise<Object> => {
   const prodObj: ProductType = {
-    id: "",
-    title: "",
+    productId: "",
+    title: [],
     tags: "",
-    createdAt: null,
-    updatedAt: null,
-    sku: [],
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    skuArr: [],
   };
 
   try {
@@ -16,16 +17,28 @@ export const getProducts: Function = async (): Promise<Object> => {
 
     const productsArray = response.data.products;
 
-    productsArray.map((product: any) => {
-      prodObj.id = product.id;
-      prodObj.title = product.title;
+    productsArray.map(async (product: any) => {
+      prodObj.title = [];
+      const skuArr: string[] = [];
+
+      prodObj.productId = product.id.toString();
+      prodObj.title.push(product.title);
       prodObj.tags = product.tags;
       prodObj.createdAt = product.created_at;
       prodObj.updatedAt = product.updated_at;
-      console.log(prodObj);
+
+      // loop through the variants field and push sku's in the array
+      product.variants.map((variant: any) => {
+        prodObj.title.push(variant.title);
+        skuArr.push(variant.sku);
+      });
+
+      prodObj.skuArr = skuArr;
+
+      await productStorage(prodObj);
     });
 
-    return response.data;
+    return { message: "Successfully inserted records into database " };
   } catch (error: any) {
     throw new Error(error);
   }

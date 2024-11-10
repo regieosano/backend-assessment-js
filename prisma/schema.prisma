@@ -20,7 +20,8 @@ model User {
 }
 
 model Product {
-  id         String    @unique
+  id         Int       @id @default(autoincrement())
+  productId  String    
   title      String[]
   tags       String
   createdAt  DateTime

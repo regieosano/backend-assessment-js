@@ -1,8 +1,8 @@
 export type ProductType = {
-  id: string;
-  title: string;
+  productId: string;
+  title: string[];
   tags: string;
-  createdAt: Date | null;
-  updatedAt: Date | null;
-  sku: string[];
+  createdAt: Date;
+  updatedAt: Date;
+  skuArr: string[];
 };
