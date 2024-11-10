@@ -17,5 +17,13 @@ model User {
   id      Int      @id @default(autoincrement())
   email   String   @unique
   name    String?
- 
+}
+
+model Product {
+  id         String    @unique
+  title      String[]
+  tags       String
+  createdAt  DateTime
+  updatedAt  DateTime
+  sku        String[]
 }
