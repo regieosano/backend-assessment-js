@@ -36,6 +36,18 @@ export const productUpdate: Function = async (
   }
 };
 
+export const productDelete: Function = async (productId: number) => {
+  try {
+    await mindArcDB.product.delete({
+      where: {
+        id: productId,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const getProducts: Function = async (): Promise<ProductType[]> => {
   try {
     return await mindArcDB.product.findMany();
