@@ -10,7 +10,7 @@ export const productStorage: Function = async (productData: ProductType) => {
         tags: productData.tags,
         createdAt: productData.createdAt,
         updatedAt: productData.updatedAt,
-        sku: productData.skuArr,
+        productCode: productData.productCode,
       },
     });
   } catch (error) {

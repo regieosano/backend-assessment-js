@@ -9,11 +9,11 @@ export const getProducts: Function = async (): Promise<Object> => {
     tags: "",
     createdAt: new Date(),
     updatedAt: new Date(),
-    skuArr: [],
+    productCode: [],
   };
 
   try {
-    const response = await axios.get(process.env.PRODUCT_URL || "");
+    const response = await axios.get(process.env.PRODUCT_GET_URL || "");
 
     const productsArray = response.data.products;
 
@@ -33,7 +33,7 @@ export const getProducts: Function = async (): Promise<Object> => {
         skuArr.push(variant.sku);
       });
 
-      prodObj.skuArr = skuArr;
+      prodObj.productCode = skuArr;
 
       await productStorage(prodObj);
     });

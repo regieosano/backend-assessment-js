@@ -4,5 +4,5 @@ export type ProductType = {
   tags: string;
   createdAt: Date;
   updatedAt: Date;
-  skuArr: string[];
+  productCode: string[];
 };
