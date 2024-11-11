@@ -2,7 +2,7 @@
 
 So this was created using NodeJS, Typescript and the PRISMA ORM.
 
-As per instructiions I followed everything except, if it's required, the Cloudflare Deployment.
+As per instructions I followed everything except, if it's required, the Cloudflare Deployment.
 I'm not quite familliar with cloudflare but I have knowledge of the platform. I did try to use cloudflare in this tech exam but I encountered errors.
 So I just decided not to make it cloudflare ready.
 
