@@ -38,11 +38,21 @@ export const productUpdate: Function = async (
 
 export const productDelete: Function = async (productId: number) => {
   try {
-    await mindArcDB.product.delete({
+    const recordForDeletion = await mindArcDB.product.findFirst({
       where: {
         id: productId,
       },
     });
+
+    if (recordForDeletion) {
+      await mindArcDB.product.delete({
+        where: {
+          id: productId,
+        },
+      });
+      return { message: "A record has been deleted" };
+    }
+    return { message: "Record does not exists" };
   } catch (error) {
     throw error;
   }

@@ -4,9 +4,9 @@ export const deleteProducts: Function = async (
   productId: number,
 ): Promise<Object> => {
   try {
-    await productDelete(productId);
+    const message = await productDelete(productId);
 
-    return { message: "A record has been deleted" };
+    return message;
   } catch (error: any) {
     throw new Error(error);
   }
