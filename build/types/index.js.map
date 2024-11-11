@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/types/index.ts"],"names":[],"mappings":"","sourcesContent":["export type ProductType = {\n  id: number;\n  productId: string;\n  title: string[];\n  tags: string;\n  createdAt: Date;\n  updatedAt: Date;\n  productCode: string[];\n};\n"]}

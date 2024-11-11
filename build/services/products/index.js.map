@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/services/products/index.ts"],"names":[],"mappings":";;;AAAA,0DAA6D;AAApD,sGAAA,WAAW,OAAA","sourcesContent":["export { getProducts } from \"@src/services/products/queries\";\n"]}
