@@ -1,4 +1,5 @@
 export type ProductType = {
+  id: number;
   productId: string;
   title: string[];
   tags: string;

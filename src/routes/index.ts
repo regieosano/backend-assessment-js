@@ -1,11 +1,14 @@
 import express from "express";
 import { getProducts } from "@src/services/products";
-import { createProducts } from "@src/services/products/mutations";
+import {
+  createProducts,
+  updateProducts,
+} from "@src/services/products/mutations";
 
 const router = express.Router();
 
 router.get(
-  "/api/products",
+  process.env.MAIN_URL || "",
   async (req: express.Request, res: express.Response) => {
     const messageObject = await getProducts();
     res.send(messageObject);
@@ -13,9 +16,17 @@ router.get(
 );
 
 router.post(
-  "/api/products",
+  process.env.MAIN_URL || "",
   async (req: express.Request, res: express.Response) => {
     const jsonResponse = await createProducts();
+    res.send(jsonResponse);
+  },
+);
+
+router.put(
+  process.env.MAIN_URL || "",
+  async (req: express.Request, res: express.Response) => {
+    const jsonResponse = await updateProducts();
     res.send(jsonResponse);
   },
 );

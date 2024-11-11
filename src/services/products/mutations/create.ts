@@ -4,6 +4,7 @@ import { productStorage } from "@src/utilities/db";
 
 export const createProducts: Function = async (): Promise<Object> => {
   const prodObjForPost: ProductType = {
+    id: 0,
     productId: "",
     title: [],
     tags: "",

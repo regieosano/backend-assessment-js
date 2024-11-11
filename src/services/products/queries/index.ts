@@ -4,6 +4,7 @@ import { productStorage } from "@src/utilities/db";
 
 export const getProducts: Function = async (): Promise<Object> => {
   const prodObj: ProductType = {
+    id: 0,
     productId: "",
     title: [],
     tags: "",

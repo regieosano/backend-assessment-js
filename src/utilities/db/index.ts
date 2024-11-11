@@ -14,7 +14,32 @@ export const productStorage: Function = async (productData: ProductType) => {
       },
     });
   } catch (error) {
-    console.log(error);
+    throw error;
+  }
+};
+
+export const productUpdate: Function = async (
+  productData: ProductType,
+  productId: number,
+) => {
+  try {
+    await mindArcDB.product.update({
+      where: {
+        id: productId,
+      },
+      data: {
+        title: productData.title,
+      },
+    });
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getProducts: Function = async (): Promise<ProductType[]> => {
+  try {
+    return await mindArcDB.product.findMany();
+  } catch (error) {
     throw error;
   }
 };
