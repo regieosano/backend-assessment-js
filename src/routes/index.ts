@@ -33,7 +33,7 @@ router.put(
 );
 
 router.delete(
-  `${process.env.MAIN_URL}/:product_id`,
+  `${process.env.MAIN_URL}/${process.env.DELETE_DATA}`,
   async (req: express.Request, res: express.Response) => {
     const { product_id } = req.params;
     const productId = Number(product_id);
